@@ -32,7 +32,7 @@ func (*calculatorService) Calculation(bs []byte) (int32, rest_errors.RestErr) {
 	defer conn.Close()
 	c := calculatropb.NewCalculatorServiceClient(conn)
 
-	req := &calculatropb.CalculatorRequest{Calulation: cal}
+	req := &calculatropb.CalculatorRequest{Calculation: cal}
 
 	res, calErr := c.Calc(context.Background(), req)
 	if calErr != nil {
