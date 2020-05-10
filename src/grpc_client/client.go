@@ -1,6 +1,7 @@
 package grpc_client
 
 import (
+	"github.com/maei/shared_utils_go/logger"
 	"google.golang.org/grpc"
 	"log"
 )
@@ -14,8 +15,8 @@ type grpcClientInterface interface {
 type grpcClient struct{}
 
 func (*grpcClient) SetClient() (*grpc.ClientConn, error) {
-
-	conn, err := grpc.Dial("localhost:50051", grpc.WithInsecure())
+	logger.Info("starting gRPC Client")
+	conn, err := grpc.Dial("grpc-server:50051", grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("could not connect: %v", err)
 		return nil, err
