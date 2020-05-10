@@ -1,6 +1,7 @@
 FROM golang:latest as builder
 
 ENV GO111MODULE=auto
+ENV SERVER_HOST=grpc-server:50051
 
 WORKDIR /go/src/github.com/maei/golang_grpc_sum_client
 
